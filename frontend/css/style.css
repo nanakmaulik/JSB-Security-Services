@@ -34800,3 +34800,1100 @@ body.home-page .services .service-row:hover .service-arrow {
         bottom: 21px !important;
     }
 }
+/* =========================================================
+   JSB — FINAL RESPONSIVE IMAGE FIX
+   Paste at VERY END of style.css
+========================================================= */
+
+/* Prevent horizontal cutting / overflow */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   TABLET + MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* ---------- HOME HERO ---------- */
+
+    .home-hero,
+    .hero {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: auto !important;
+        min-height: auto !important;
+
+        overflow: visible !important;
+    }
+
+    .home-hero img,
+    .hero img {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: auto !important;
+        max-height: none !important;
+
+        object-fit: contain !important;
+        object-position: center center !important;
+
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+
+        transform: none !important;
+    }
+
+
+    /* ---------- ABOUT OVERVIEW IMAGE ---------- */
+
+    .about-page .about-overview-visual {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: auto !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        overflow: visible !important;
+    }
+
+    .about-page .about-overview-image {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: auto !important;
+        max-height: none !important;
+
+        object-fit: contain !important;
+        object-position: center center !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    /* ---------- GENERAL SECTION IMAGES ---------- */
+
+    .home-about img,
+    .about-image img,
+    .about-visual img,
+    .section-image img {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: auto !important;
+        max-height: none !important;
+
+        object-fit: contain !important;
+        object-position: center center !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Containers mobile screen se bahar na jayen */
+    .container,
+    .home-container,
+    .about-container {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* ---------- HERO IMAGE ---------- */
+
+    .home-hero,
+    .hero {
+        width: 100% !important;
+
+        height: auto !important;
+        min-height: auto !important;
+
+        overflow: visible !important;
+    }
+
+    .home-hero img,
+    .hero img {
+        width: 100% !important;
+        height: auto !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+
+        transform: none !important;
+    }
+
+
+    /* ---------- ABOUT IMAGE ---------- */
+
+    .about-page .about-overview-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+
+        width: 100% !important;
+        gap: 35px !important;
+    }
+
+    .about-page .about-overview-visual {
+        width: 100% !important;
+        height: auto !important;
+
+        overflow: visible !important;
+    }
+
+    .about-page .about-overview-image {
+        display: block !important;
+
+        width: 100% !important;
+        height: auto !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+
+
+    /* ---------- TEXT RESPONSIVE ---------- */
+
+    h1,
+    .home-hero h1,
+    .hero h1 {
+        max-width: 100% !important;
+
+        font-size: clamp(34px, 10vw, 52px) !important;
+        line-height: 1.05 !important;
+
+        overflow-wrap: break-word;
+    }
+
+    h2 {
+        max-width: 100% !important;
+
+        font-size: clamp(30px, 8vw, 42px) !important;
+        line-height: 1.08 !important;
+
+        overflow-wrap: break-word;
+    }
+
+    p {
+        max-width: 100% !important;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .hero-actions,
+    .home-hero-actions {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: stretch !important;
+
+        gap: 12px !important;
+    }
+
+    .hero-actions a,
+    .home-hero-actions a {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        box-sizing: border-box !important;
+
+        text-align: center !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    h1,
+    .home-hero h1,
+    .hero h1 {
+        font-size: 34px !important;
+    }
+
+    h2 {
+        font-size: 30px !important;
+    }
+
+    .about-page .about-overview-image {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+/* =========================================================
+   JSB — FINAL MOBILE NAVBAR FIX
+   SAME NAVBAR ON ALL PAGES
+   NO HORIZONTAL SWIPE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       PREVENT PAGE / NAV HORIZONTAL SWIPE
+    ----------------------------------------- */
+
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+
+    /* -----------------------------------------
+       ALL HEADER TYPES — SAME MOBILE FORMAT
+    ----------------------------------------- */
+
+    .site-header,
+    .services-header,
+    .ind-header,
+    .industries-header {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #050505 !important;
+
+        overflow: visible !important;
+
+        position: relative !important;
+        z-index: 999999 !important;
+    }
+
+
+    /* -----------------------------------------
+       HEADER INNER
+    ----------------------------------------- */
+
+    .site-header .header-inner,
+    .services-header .header-inner,
+    .ind-header .header-inner,
+    .industries-header .header-inner,
+    .ind-header-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 auto !important;
+        padding: 14px 16px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 13px !important;
+
+        box-sizing: border-box !important;
+
+        overflow: visible !important;
+    }
+
+
+    /* -----------------------------------------
+       LOGO / BRAND
+    ----------------------------------------- */
+
+    .brand,
+    .logo-wrap,
+    .ind-brand {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: auto !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        flex: 0 0 auto !important;
+    }
+
+
+    .brand-logo,
+    .logo-image,
+    .ind-brand-logo {
+        flex: 0 0 auto !important;
+    }
+
+
+    /* -----------------------------------------
+       NAVIGATION
+       IMPORTANT: WRAP — NOT SWIPE
+    ----------------------------------------- */
+
+    .navigation,
+    .ind-nav {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        column-gap: 16px !important;
+        row-gap: 10px !important;
+
+        overflow: visible !important;
+        overflow-x: visible !important;
+
+        white-space: normal !important;
+
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+
+        transform: none !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* -----------------------------------------
+       ALL MOBILE NAV LINKS SAME
+    ----------------------------------------- */
+
+    .navigation .nav-link,
+    .ind-nav a,
+    .navigation .nav-services-trigger {
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+
+        flex: 0 0 auto !important;
+
+        margin: 0 !important;
+        padding: 4px 0 !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 6px !important;
+
+        font-family: "Manrope", sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        line-height: 1.35 !important;
+
+        color: #a8a8a8 !important;
+        -webkit-text-fill-color: #a8a8a8 !important;
+
+        text-decoration: none !important;
+        text-align: center !important;
+
+        white-space: nowrap !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+
+        position: relative !important;
+    }
+
+
+    /* -----------------------------------------
+       ACTIVE / HOVER
+    ----------------------------------------- */
+
+    .navigation .nav-link:hover,
+    .navigation .nav-link.active,
+    .navigation .nav-services-trigger:hover,
+    .navigation .nav-services-mega.mega-open .nav-services-trigger,
+    .ind-nav a:hover,
+    .ind-nav a.active {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+    }
+
+
+    /* -----------------------------------------
+       SERVICES WRAPPER
+    ----------------------------------------- */
+
+    .navigation .nav-services-mega {
+        position: static !important;
+
+        width: auto !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        flex: 0 0 auto !important;
+    }
+
+
+    /* -----------------------------------------
+       SERVICES CHEVRON
+    ----------------------------------------- */
+
+    .navigation .nav-services-chevron {
+        width: 6px !important;
+        height: 6px !important;
+
+        margin: 0 0 3px 2px !important;
+
+        border-right: 1.5px solid currentColor !important;
+        border-bottom: 1.5px solid currentColor !important;
+
+        transform: rotate(45deg) !important;
+    }
+
+
+    .navigation
+    .nav-services-mega.mega-open
+    .nav-services-chevron {
+        transform: rotate(225deg) !important;
+        margin-bottom: -2px !important;
+    }
+
+
+    /* -----------------------------------------
+       QUOTE BUTTON — SAME ON EVERY PAGE
+    ----------------------------------------- */
+
+    .quote-button,
+    .header-button,
+    .ind-quote {
+        width: auto !important;
+        min-width: 0 !important;
+
+        margin: 2px auto 0 !important;
+        padding: 10px 18px !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        flex: 0 0 auto !important;
+
+        font-family: "Manrope", sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* -----------------------------------------
+       REMOVE OLD INDUSTRIES SWIPE BEHAVIOUR
+    ----------------------------------------- */
+
+    .ind-nav {
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+
+        -webkit-overflow-scrolling: auto !important;
+
+        scroll-snap-type: none !important;
+        scroll-behavior: auto !important;
+
+        justify-content: center !important;
+    }
+
+
+    .ind-nav > * {
+        scroll-snap-align: none !important;
+    }
+
+
+    /* -----------------------------------------
+       NO ELEMENT SHOULD FORCE NAV WIDTH
+    ----------------------------------------- */
+
+    .site-header *,
+    .services-header *,
+    .ind-header *,
+    .industries-header * {
+        box-sizing: border-box !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .site-header .header-inner,
+    .services-header .header-inner,
+    .ind-header .header-inner,
+    .industries-header .header-inner,
+    .ind-header-inner {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+
+    .navigation,
+    .ind-nav {
+        column-gap: 13px !important;
+        row-gap: 9px !important;
+    }
+
+
+    .navigation .nav-link,
+    .ind-nav a,
+    .navigation .nav-services-trigger {
+        font-size: 12px !important;
+    }
+
+
+    .quote-button,
+    .header-button,
+    .ind-quote {
+        font-size: 11px !important;
+        padding: 9px 15px !important;
+    }
+
+}
+/* =========================================================
+   JSB — MOBILE NAVBAR LAYOUT FIX ONLY
+   FONT / TEXT / QUOTE BUTTON DESIGN UNTOUCHED
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Stop horizontal page swipe */
+    html,
+    body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+
+    /* Same header behaviour on every page */
+    .site-header,
+    .services-header,
+    .ind-header,
+    .industries-header {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        position: relative !important;
+        z-index: 999999 !important;
+    }
+
+
+    /* Same header inner layout */
+    .site-header .header-inner,
+    .services-header .header-inner,
+    .ind-header .header-inner,
+    .industries-header .header-inner,
+    .ind-header-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        box-sizing: border-box !important;
+
+        overflow: visible !important;
+    }
+
+
+    /* =========================================
+       NAVIGATION
+       Only layout changed — NO font changes
+    ========================================= */
+
+    .navigation,
+    .ind-nav {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        overflow: visible !important;
+        overflow-x: visible !important;
+
+        white-space: normal !important;
+
+        left: auto !important;
+        right: auto !important;
+
+        transform: none !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* =========================================
+       INDUSTRIES — REMOVE SWIPE ONLY
+    ========================================= */
+
+    .ind-nav {
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+
+        -webkit-overflow-scrolling: auto !important;
+
+        scroll-snap-type: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .ind-nav > * {
+        scroll-snap-align: none !important;
+    }
+
+
+    /* =========================================
+       NAV ITEMS
+       Keep existing font/style exactly same
+    ========================================= */
+
+    .navigation .nav-link,
+    .ind-nav a,
+    .navigation .nav-services-trigger {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+
+
+    /* Services wrapper */
+    .navigation .nav-services-mega {
+        flex-shrink: 0 !important;
+    }
+
+
+    /* =========================================
+       REQUEST A QUOTE
+       ONLY prevent shrinking
+       Existing size/font/padding remain untouched
+    ========================================= */
+
+    .quote-button,
+    .header-button,
+    .ind-quote {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+
+
+    /* Prevent header elements causing overflow */
+    .site-header *,
+    .services-header *,
+    .ind-header *,
+    .industries-header * {
+        box-sizing: border-box !important;
+    }
+}
+/* =========================================================
+   FINAL MOBILE REQUEST A QUOTE — COMPACT SIZE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .site-header .quote-button,
+    .services-header .quote-button,
+    .services-header .header-button,
+    .ind-header .ind-quote,
+    .industries-header .quote-button,
+    .industries-header .header-button {
+
+        /* COMPACT BUTTON */
+        width: 165px !important;
+        min-width: 165px !important;
+        max-width: 165px !important;
+
+        height: 52px !important;
+        min-height: 52px !important;
+        max-height: 52px !important;
+
+        /* IMPORTANT — old flex rule cancel */
+        flex: 0 0 52px !important;
+
+        /* CENTER */
+        margin: 8px auto 14px !important;
+        padding: 0 14px !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        /* SAME LOOK */
+        background: #ffffff !important;
+        color: #111111 !important;
+        -webkit-text-fill-color: #111111 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+
+        font-family: "Manrope", sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        line-height: 1 !important;
+
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+
+        white-space: nowrap !important;
+
+        box-sizing: border-box !important;
+
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+}
+/* =========================================================
+   JSB — FINAL MOBILE SERVICES MEGA MENU
+   MOBILE ONLY
+   DESKTOP / TABLET DESKTOP VIEW UNTOUCHED
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Header must allow dropdown */
+    .site-header,
+    .services-header,
+    .ind-header,
+    .industries-header {
+        position: relative !important;
+        overflow: visible !important;
+        z-index: 999999 !important;
+    }
+
+
+    .header-inner,
+    .ind-header-inner {
+        position: relative !important;
+        overflow: visible !important;
+    }
+
+
+    /* -----------------------------------------
+       SERVICES NAV ITEM
+    ----------------------------------------- */
+
+    .navigation .nav-services-mega {
+        position: static !important;
+
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: visible !important;
+    }
+
+
+    /* -----------------------------------------
+       SERVICES BUTTON
+       Keep existing navbar font
+    ----------------------------------------- */
+
+    .navigation .nav-services-trigger {
+        width: auto !important;
+        height: auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+
+        margin: 0 !important;
+
+        background: transparent !important;
+        border: 0 !important;
+
+        font: inherit !important;
+
+        white-space: nowrap !important;
+
+        cursor: pointer !important;
+    }
+
+
+    /* =====================================================
+       MEGA MENU — CLOSED
+    ===================================================== */
+
+    .navigation .services-mega-menu {
+
+        position: absolute !important;
+
+        /* directly below complete navigation */
+        top: 100% !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        width: calc(100vw - 28px) !important;
+        max-width: 420px !important;
+        min-width: 0 !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: 70vh !important;
+
+        margin: 10px 0 0 !important;
+        padding: 0 !important;
+
+        background: #080808 !important;
+
+        border: 1px solid #292929 !important;
+        border-radius: 8px !important;
+
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45) !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        -webkit-overflow-scrolling: touch !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+
+        transform: translate(-50%, -6px) !important;
+
+        z-index: 9999999 !important;
+
+        box-sizing: border-box !important;
+
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease,
+            visibility 0.2s ease !important;
+    }
+
+
+    /* =====================================================
+       OPEN WHEN YOUR EXISTING JS ADDS .mega-open
+    ===================================================== */
+
+    .navigation
+    .nav-services-mega.mega-open
+    .services-mega-menu {
+
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+
+        transform: translate(-50%, 0) !important;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU INNER
+    ===================================================== */
+
+    .navigation .services-mega-inner {
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: 0 !important;
+        padding: 18px !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* =====================================================
+       SERVICES LIST
+    ===================================================== */
+
+    .navigation .services-mega-list {
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+
+        gap: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* OUR SERVICES LABEL */
+
+    .navigation .services-mega-label {
+
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 0 10px !important;
+        padding: 0 0 10px !important;
+
+        color: #777777 !important;
+
+        font-family: "Manrope", sans-serif !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+
+        letter-spacing: 0.16em !important;
+
+        border-bottom: 1px solid #262626 !important;
+    }
+
+
+    /* =====================================================
+       EACH SERVICE LINK
+    ===================================================== */
+
+    .navigation .services-mega-item {
+
+        display: flex !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: 0 !important;
+        padding: 12px 4px !important;
+
+        color: #b5b5b5 !important;
+        -webkit-text-fill-color: #b5b5b5 !important;
+
+        background: transparent !important;
+
+        border: 0 !important;
+        border-bottom: 1px solid #222222 !important;
+
+        font-family: "Manrope", sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        line-height: 1.35 !important;
+
+        text-decoration: none !important;
+        text-align: left !important;
+
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+
+        box-sizing: border-box !important;
+
+        transform: none !important;
+    }
+
+
+    .navigation .services-mega-item:last-child {
+        border-bottom: 0 !important;
+    }
+
+
+    .navigation .services-mega-item:hover,
+    .navigation .services-mega-item:focus,
+    .navigation .services-mega-item.active {
+
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+
+        background: rgba(255,255,255,0.04) !important;
+    }
+
+
+    /* =====================================================
+       DESKTOP DETAILS + IMAGE NOT NEEDED ON MOBILE
+    ===================================================== */
+
+    .navigation .services-mega-details,
+    .navigation .services-mega-copy,
+    .navigation .services-mega-visual {
+
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       PREVENT MEGA MENU FROM CAUSING HORIZONTAL SWIPE
+    ===================================================== */
+
+    .navigation .services-mega-menu *,
+    .navigation .services-mega-inner,
+    .navigation .services-mega-list {
+
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* Chevron */
+    .navigation .nav-services-chevron {
+        transition: transform 0.2s ease !important;
+    }
+
+
+    .navigation
+    .nav-services-mega.mega-open
+    .nav-services-chevron {
+
+        transform: rotate(225deg) !important;
+    }
+
+}
