@@ -35896,4 +35896,6 @@ img {
         transform: rotate(225deg) !important;
     }
 
+}html {
+    scroll-behavior: smooth;
 }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | JSB Security Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+
+<body class="admin-dashboard-page">
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+
+            <img src="../Logo.jpeg" alt="JSB Security Services">
+
+            <div>
+                <strong>JSB</strong>
+                <span>ADMIN PORTAL</span>
+            </div>
+
+        </div>
+
+
+        <nav class="admin-navigation">
+
+            <button
+                class="admin-nav-item active"
+                data-section="quotes"
+            >
+                <span>Quote Requests</span>
+                <span class="nav-count" id="quoteCount">0</span>
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                data-section="careers"
+            >
+                <span>Career Applications</span>
+                <span class="nav-count" id="careerCount">0</span>
+            </button>
+
+        </nav>
+
+
+        <div class="admin-sidebar-footer">
+
+            <button id="logoutButton" class="logout-button">
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+        <header class="admin-topbar">
+
+            <div>
+                <span class="admin-eyebrow">
+                    JSB SECURITY SERVICES
+                </span>
+
+                <h1 id="dashboardTitle">
+                    Quote Requests
+                </h1>
+            </div>
+
+            <div class="admin-user">
+                Administrator
+            </div>
+
+        </header>
+
+
+        <!-- STATS -->
+
+        <section class="dashboard-stats">
+
+            <article class="stat-card">
+                <span>Total</span>
+                <strong id="totalStat">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>New</span>
+                <strong id="newStat">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Accepted</span>
+                <strong id="acceptedStat">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Rejected</span>
+                <strong id="rejectedStat">0</strong>
+            </article>
+
+        </section>
+
+
+        <!-- FILTERS -->
+
+        <section class="admin-toolbar">
+
+            <input
+                type="search"
+                id="adminSearch"
+                placeholder="Search..."
+            >
+
+            <select id="statusFilter">
+                <option value="all">All Statuses</option>
+                <option value="new">New</option>
+                <option value="accepted">Accepted</option>
+                <option value="rejected">Rejected</option>
+            </select>
+
+        </section>
+
+
+        <!-- CARDS -->
+
+        <section
+            id="adminCards"
+            class="admin-cards"
+        ></section>
+
+    </main>
+
+</div>
+
+
+<!-- EDIT MODAL -->
+
+<div
+    class="admin-modal"
+    id="editModal"
+    aria-hidden="true"
+>
+
+    <div class="admin-modal-card">
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            type="button"
+        >
+            ×
+        </button>
+
+        <span class="admin-eyebrow">
+            EDIT RECORD
+        </span>
+
+        <h2>Edit information</h2>
+
+        <form id="editForm">
+
+            <div id="editFields"></div>
+
+            <button
+                type="submit"
+                class="admin-primary-btn"
+            >
+                SAVE CHANGES
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>

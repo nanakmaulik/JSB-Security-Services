@@ -1407,14 +1407,14 @@
                 <p>
                     <strong>Phone:</strong>
                     <a href="tel:[BUSINESS-PHONE]">
-                        [BUSINESS PHONE]
+                        5485574000
                     </a>
                 </p>
 
                 <p>
                     <strong>Email:</strong>
                     <a href="mailto:[BUSINESS-EMAIL]">
-                        [BUSINESS EMAIL]
+                        jsbsecurityservices@gmail.com
                     </a>
                 </p>
 
@@ -1846,7 +1846,15 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
    const supabaseClient = supabase.createClient(
     "https://azzvzmuwopejemvfurzl.supabase.co",
-    "sb_publishable_SE5eRbtDnaaPZOgtyYZHSg_ZyUaQPhS"
+    "sb_publishable_SE5eRbtDnaaPZOgtyYZHSg_ZyUaQPhS",
+    {
+        auth: {
+            persistSession: false,
+            autoRefreshToken: false,
+            detectSessionInUrl: false,
+            storageKey: "jsb-public-careers-auth"
+        }
+    }
 );
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | JSB Security Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-login-page">
+
+    <main class="login-shell">
+
+        <section class="login-card">
+
+            <div class="login-brand">
+                <img src="../Logo.jpeg" alt="JSB Security Services">
+                <div>
+                    <strong>JSB</strong>
+                    <span>SECURITY SERVICES</span>
+                </div>
+            </div>
+
+            <div class="login-heading">
+                <span>ADMIN PORTAL</span>
+                <h1>Welcome back.</h1>
+                <p>Sign in to manage inquiries and career applications.</p>
+            </div>
+
+            <form id="adminLoginForm">
+
+                <div class="admin-field">
+                    <label for="adminEmail">Email Address</label>
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="admin-field">
+                    <label for="adminPassword">Password</label>
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <p id="loginError" class="login-error"></p>
+
+                <button type="submit" class="admin-login-btn">
+                    SIGN IN
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const supabaseClient = supabase.createClient(
+            "https://azzvzmuwopejemvfurzl.supabase.co",
+            "sb_publishable_SE5eRbtDnaaPZOgtyYZHSg_ZyUaQPhS"
+        );
+
+        const form = document.getElementById("adminLoginForm");
+        const errorBox = document.getElementById("loginError");
+
+        form.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+            errorBox.textContent = "";
+
+            const email =
+                document.getElementById("adminEmail").value.trim();
+
+            const password =
+                document.getElementById("adminPassword").value;
+
+            const { error } =
+                await supabaseClient.auth.signInWithPassword({
+                    email,
+                    password
+                });
+
+            if (error) {
+                errorBox.textContent = error.message;
+                return;
+            }
+
+            window.location.replace("admin-dashboard.html");
+        });
+    </script>
+
+</body>
+</html>
