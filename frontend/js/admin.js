@@ -7,6 +7,7 @@ const supabaseClient = supabase.createClient(
 let currentSection = "quotes";
 let currentRecords = [];
 let editingRecord = null;
+let currentEnvironment = "all";
 
 
 /* =========================================================
@@ -157,7 +158,38 @@ async function loadCareers() {
 
     renderRecords();
 }
+/* =========================================================
+   LOAD SECURITY PLANS
+========================================================= */
 
+async function loadSecurityPlans() {
+
+    const { data, error } = await supabaseClient
+        .from("security_plans")
+        .select("*")
+        .order("created_at", {
+            ascending: false
+        });
+
+    if (error) {
+
+        console.error(
+            "Security plans load error:",
+            error
+        );
+
+        alert(
+            error.message ||
+            "Unable to load security plans."
+        );
+
+        return;
+    }
+
+    currentRecords = data || [];
+
+    renderRecords();
+}
 
 /* =========================================================
    SAFE HTML
@@ -218,7 +250,34 @@ function renderRecords() {
             filter === "all" ||
             record.status === filter;
 
-        return searchMatch && statusMatch;
+
+        let environmentMatch = true;
+
+
+        if (
+            currentSection === "security-plans" &&
+            currentEnvironment !== "all"
+        ) {
+
+            const environmentText = (
+                (record.environment_key || "") +
+                " " +
+                (record.environment_name || "")
+            ).toLowerCase();
+
+
+            environmentMatch =
+                environmentText.includes(
+                    currentEnvironment.toLowerCase()
+                );
+        }
+
+
+        return (
+            searchMatch &&
+            statusMatch &&
+            environmentMatch
+        );
     });
 
 
@@ -241,12 +300,18 @@ function renderRecords() {
         .map(record => {
 
             if (currentSection === "quotes") {
-
                 return quoteCard(record);
-
             }
 
-            return careerCard(record);
+            if (currentSection === "careers") {
+                return careerCard(record);
+            }
+
+            if (currentSection === "security-plans") {
+                return securityPlanCard(record);
+            }
+
+            return "";
 
         })
         .join("");
@@ -501,6 +566,433 @@ function careerCard(record) {
 
         </article>
     `;
+}
+/* =========================================================
+   SECURITY PLAN CARD
+========================================================= */
+
+function securityPlanCard(record) {
+
+    return `
+        <article class="lead-card security-plan-card">
+
+            <div class="lead-card-top">
+
+                <div>
+
+                    <span class="lead-type">
+                        SECURITY PLAN
+                    </span>
+
+                    <h2>
+                        ${escapeHTML(
+                            record.environment_name ||
+                            "Security Plan"
+                        )}
+                    </h2>
+
+                    <p>
+                        ${formatDate(record.created_at)}
+                    </p>
+
+                </div>
+
+                <span class="status-badge status-${escapeHTML(record.status)}">
+                    ${escapeHTML(record.status)}
+                </span>
+
+            </div>
+
+
+            <div class="lead-information">
+
+                <div>
+                    <span>Contact Name</span>
+                    <strong>
+                        ${escapeHTML(record.contact_name || "—")}
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Email</span>
+                    <strong>
+                        ${escapeHTML(record.contact_email || "—")}
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Phone</span>
+                    <strong>
+                        ${escapeHTML(record.contact_phone || "—")}
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Environment</span>
+                    <strong>
+                        ${escapeHTML(record.environment_name || "—")}
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Coverage</span>
+                    <strong>
+                        ${escapeHTML(record.coverage_schedule || "—")}
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Preferred Start</span>
+                    <strong>
+                        ${escapeHTML(record.preferred_start_date || "—")}
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="lead-message">
+
+                <span>Additional Information</span>
+
+                <p>
+                    ${escapeHTML(
+                        record.additional_information || "—"
+                    )}
+                </p>
+
+            </div>
+
+
+            <div class="lead-actions">
+
+                <button
+                    type="button"
+                    class="plan-view-btn"
+                    onclick="viewSecurityPlan('${record.id}')"
+                >
+                    View Full Plan
+                </button>
+
+                <button
+                    type="button"
+                    class="accept-btn"
+                    onclick="acceptSecurityPlan('${record.id}')"
+                >
+                    ✓ Accept
+                </button>
+
+                <button
+                    type="button"
+                    class="reject-btn"
+                    onclick="rejectSecurityPlan('${record.id}')"
+                >
+                    ✕ Reject
+                </button>
+
+            </div>
+
+        </article>
+    `;
+}
+/* =========================================================
+   VIEW SECURITY PLAN
+========================================================= */
+
+function viewSecurityPlan(id) {
+
+    const record = currentRecords.find(
+        item => item.id === id
+    );
+
+    if (!record) return;
+
+
+    const modal =
+        document.getElementById("planModal");
+
+    const title =
+        document.getElementById("planModalTitle");
+
+    const content =
+        document.getElementById("planModalContent");
+
+
+    title.textContent =
+        record.environment_name ||
+        "Security Plan";
+
+
+    let details = record.plan_details || {};
+
+
+    /*
+     * In case JSON comes back as a string
+     */
+    if (typeof details === "string") {
+
+        try {
+            details = JSON.parse(details);
+        } catch {
+            details = {};
+        }
+    }
+
+
+    const detailRows =
+        Object.entries(details)
+            .map(([key, value]) => {
+
+                const label = key
+                    .replaceAll("_", " ")
+                    .replace(/\b\w/g, letter =>
+                        letter.toUpperCase()
+                    );
+
+
+                const displayValue =
+                    Array.isArray(value)
+                        ? value.join(", ")
+                        : value || "—";
+
+
+                return `
+                    <div class="plan-detail-row">
+
+                        <span>
+                            ${escapeHTML(label)}
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(displayValue)}
+                        </strong>
+
+                    </div>
+                `;
+
+            })
+            .join("");
+
+
+    content.innerHTML = `
+
+        <div class="plan-contact-summary">
+
+            <div>
+                <span>Contact Name</span>
+                <strong>
+                    ${escapeHTML(record.contact_name || "—")}
+                </strong>
+            </div>
+
+            <div>
+                <span>Email Address</span>
+                <strong>
+                    ${escapeHTML(record.contact_email || "—")}
+                </strong>
+            </div>
+
+            <div>
+                <span>Phone Number</span>
+                <strong>
+                    ${escapeHTML(record.contact_phone || "—")}
+                </strong>
+            </div>
+
+            <div>
+                <span>Coverage</span>
+                <strong>
+                    ${escapeHTML(record.coverage_schedule || "—")}
+                </strong>
+            </div>
+
+            <div>
+                <span>Preferred Start Date</span>
+                <strong>
+                    ${escapeHTML(record.preferred_start_date || "—")}
+                </strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong>
+                    ${escapeHTML(record.status || "new")}
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="plan-details-heading">
+            PLAN REQUIREMENTS
+        </div>
+
+
+        <div class="plan-detail-list">
+
+            ${
+                detailRows ||
+                `
+                    <div class="plan-detail-row">
+                        <span>Details</span>
+                        <strong>—</strong>
+                    </div>
+                `
+            }
+
+        </div>
+
+
+        <div class="plan-additional-info">
+
+            <span>
+                ADDITIONAL INFORMATION
+            </span>
+
+            <p>
+                ${escapeHTML(
+                    record.additional_information || "—"
+                )}
+            </p>
+
+        </div>
+    `;
+
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+}
+
+
+function closePlanModal() {
+
+    const modal =
+        document.getElementById("planModal");
+
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+}
+
+
+document
+    .getElementById("planModalClose")
+    .addEventListener(
+        "click",
+        closePlanModal
+    );
+
+
+document
+    .getElementById("planModal")
+    .addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.id === "planModal"
+            ) {
+                closePlanModal();
+            }
+
+        }
+    );
+    /* =========================================================
+   SECURITY PLAN STATUS
+========================================================= */
+
+async function acceptSecurityPlan(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to accept this security plan?"
+    );
+
+    if (!confirmed) return;
+
+
+    try {
+
+        const { error } = await supabaseClient
+            .from("security_plans")
+            .update({
+                status: "accepted",
+                updated_at: new Date().toISOString()
+            })
+            .eq("id", id);
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        alert(
+            "Security plan accepted successfully."
+        );
+
+
+        await loadSecurityPlans();
+
+
+    } catch (error) {
+
+        console.error(
+            "Security plan accept error:",
+            error
+        );
+
+        alert(
+            error.message ||
+            "Unable to accept security plan."
+        );
+    }
+}
+
+
+async function rejectSecurityPlan(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to reject this security plan?"
+    );
+
+    if (!confirmed) return;
+
+
+    try {
+
+        const { error } = await supabaseClient
+            .from("security_plans")
+            .update({
+                status: "rejected",
+                updated_at: new Date().toISOString()
+            })
+            .eq("id", id);
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        alert(
+            "Security plan rejected successfully."
+        );
+
+
+        await loadSecurityPlans();
+
+
+    } catch (error) {
+
+        console.error(
+            "Security plan reject error:",
+            error
+        );
+
+        alert(
+            error.message ||
+            "Unable to reject security plan."
+        );
+    }
 }
 async function rejectRecord(id) {
 
@@ -921,18 +1413,32 @@ function updateStats() {
 
     if (currentSection === "quotes") {
 
-        document.getElementById("quoteCount").textContent =
-            currentRecords.filter(
-                record => record.status === "new"
-            ).length;
+    document.getElementById("quoteCount").textContent =
+        currentRecords.filter(
+            record => record.status === "new"
+        ).length;
 
-    } else {
+}
 
-        document.getElementById("careerCount").textContent =
-            currentRecords.filter(
-                record => record.status === "new"
-            ).length;
-    }
+
+if (currentSection === "careers") {
+
+    document.getElementById("careerCount").textContent =
+        currentRecords.filter(
+            record => record.status === "new"
+        ).length;
+
+}
+
+
+if (currentSection === "security-plans") {
+
+    document.getElementById("securityPlanCount").textContent =
+        currentRecords.filter(
+            record => record.status === "new"
+        ).length;
+
+}
 }
 
 
@@ -946,9 +1452,22 @@ async function reloadCurrentSection() {
 
         await loadQuotes();
 
-    } else {
+        return;
+    }
+
+
+    if (currentSection === "careers") {
 
         await loadCareers();
+
+        return;
+    }
+
+
+    if (currentSection === "security-plans") {
+
+        await loadSecurityPlans();
+
     }
 }
 
@@ -979,13 +1498,59 @@ document
                     button.dataset.section;
 
 
-                document.getElementById(
-                    "dashboardTitle"
-                ).textContent =
-                    currentSection === "quotes"
-                        ? "Quote Requests"
-                        : "Career Applications";
+                let sectionTitle = "Quote Requests";
 
+
+if (currentSection === "careers") {
+    sectionTitle = "Career Applications";
+}
+
+
+if (currentSection === "security-plans") {
+    sectionTitle = "Security Plans";
+}
+
+
+document.getElementById(
+    "dashboardTitle"
+).textContent =
+    sectionTitle;
+
+
+/* SHOW / HIDE SECURITY PLAN ENVIRONMENT FILTERS */
+
+const environmentBar =
+    document.getElementById(
+        "environmentFilterBar"
+    );
+
+
+if (currentSection === "security-plans") {
+
+    environmentBar.style.display = "flex";
+
+} else {
+
+    environmentBar.style.display = "none";
+
+}
+
+
+/* RESET ENVIRONMENT FILTER */
+
+currentEnvironment = "all";
+
+
+document
+    .querySelectorAll(".environment-filter")
+    .forEach(filterButton => {
+
+        filterButton.classList.toggle(
+            "active",
+            filterButton.dataset.environment === "all"
+        );
+
+    });
 
                 document.getElementById(
                     "adminSearch"
@@ -1002,7 +1567,40 @@ document
         );
     });
 
+/* =========================================================
+   SECURITY PLAN ENVIRONMENT FILTER
+========================================================= */
 
+document
+    .querySelectorAll(".environment-filter")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".environment-filter"
+                    )
+                    .forEach(item =>
+                        item.classList.remove("active")
+                    );
+
+
+                button.classList.add("active");
+
+
+                currentEnvironment =
+                    button.dataset.environment;
+
+
+                renderRecords();
+
+            }
+        );
+
+    });
 /* =========================================================
    SEARCH / FILTER
 ========================================================= */

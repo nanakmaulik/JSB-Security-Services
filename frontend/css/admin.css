@@ -595,3 +595,218 @@ textarea {
     border-color: #b9e1c7;
     color: #176c38;
 }
+/* =========================================================
+   SECURITY PLANS
+========================================================= */
+
+.environment-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.environment-filter {
+    border: 1px solid #d8d8d8;
+    background: #ffffff;
+    color: #666666;
+    padding: 11px 16px;
+    cursor: pointer;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.environment-filter:hover,
+.environment-filter.active {
+    background: #111111;
+    border-color: #111111;
+    color: #ffffff;
+}
+
+
+/* SECURITY PLAN CARD */
+
+.security-plan-card {
+    border-left: 3px solid #111111;
+}
+
+
+/* VIEW PLAN BUTTON */
+
+.lead-actions .plan-view-btn {
+    background: #111111;
+    border: 1px solid #111111;
+    color: #ffffff;
+
+    padding: 11px 18px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.03em;
+}
+
+.lead-actions .plan-view-btn:hover {
+    background: #333333;
+    border-color: #333333;
+}
+
+
+/* =========================================================
+   SECURITY PLAN MODAL
+========================================================= */
+
+.plan-modal-card {
+    width: min(820px, 100%);
+}
+
+.plan-contact-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+
+    margin-top: 25px;
+
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+}
+
+.plan-contact-summary > div {
+    padding: 18px;
+
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.plan-contact-summary span,
+.plan-detail-row span,
+.plan-additional-info > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #888888;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.plan-contact-summary strong {
+    font-size: 13px;
+    word-break: break-word;
+}
+
+
+/* PLAN REQUIREMENTS */
+
+.plan-details-heading {
+    margin-top: 30px;
+    margin-bottom: 12px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+.plan-detail-list {
+    border: 1px solid #e5e5e5;
+}
+
+.plan-detail-row {
+    display: grid;
+    grid-template-columns: 42% 58%;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.plan-detail-row:last-child {
+    border-bottom: 0;
+}
+
+.plan-detail-row span,
+.plan-detail-row strong {
+    padding: 15px 17px;
+    margin: 0;
+}
+
+.plan-detail-row span {
+    border-right: 1px solid #e5e5e5;
+}
+
+.plan-detail-row strong {
+    font-size: 13px;
+    word-break: break-word;
+}
+
+
+/* ADDITIONAL INFORMATION */
+
+.plan-additional-info {
+    margin-top: 22px;
+    padding: 20px;
+
+    background: #f6f6f4;
+}
+
+.plan-additional-info p {
+    margin: 0;
+
+    color: #555555;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .admin-navigation {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .environment-filter-bar {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .environment-filter {
+        width: 100%;
+    }
+
+    .plan-contact-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-detail-row {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-detail-row span {
+        border-right: 0;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+}

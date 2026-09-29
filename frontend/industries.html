@@ -1901,32 +1901,32 @@
 
             <!-- CONTACT -->
 
-            <div class="footer-column footer-contact">
+            <!-- CONTACT -->
 
-                <h4>CONTACT</h4>
+<div class="footer-column footer-contact">
 
-                <p>
-                    <strong>Phone:</strong>
-                    <a href="tel:[BUSINESS-PHONE]">
-                        5485574000
-                    </a>
-                </p>
+    <h4>CONTACT</h4>
 
-                <p>
-                    <strong>Email:</strong>
-                    <a href="mailto:[BUSINESS-EMAIL]">
-                     jsbsecurityservices@gmail.com
-                    </a>
-                </p>
+    <p>
+        <strong>Phone:</strong>
+        <a href="tel:+15485574000">
+            548-557-4000
+        </a>
+    </p>
 
-                <p>
-                    <strong>Service Area:</strong><br>
-                    Ontario, Canada
-                </p>
+    <p>
+        <strong>Email:</strong>
+        <a href="mailto:jsbsecurityservices@gmail.com">
+            jsbsecurityservices@gmail.com
+        </a>
+    </p>
 
-            </div>
+    <p>
+        <strong>Service Area:</strong><br>
+        Ontario, Canada
+    </p>
 
-        </div>
+</div>
 
 
         <!-- =====================================================
@@ -1992,7 +1992,22 @@
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const publicSupabase = supabase.createClient(
+    "https://azzvzmuwopejemvfurzl.supabase.co",
+    "sb_publishable_SE5eRbtDnaaPZOgtyYZHSg_ZyUaQPhS",
+    {
+        auth: {
+            persistSession: false,
+            autoRefreshToken: false,
+            detectSessionInUrl: false,
+            storageKey: "jsb-public-industries-auth"
+        }
+    }
+);
+</script>
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -3265,48 +3280,166 @@ editButton.addEventListener(
    SUBMIT REQUEST
 ========================================================= */
 
-submitButton.addEventListener(
-    "click",
-    function () {
+/* =========================================================
+   SUBMIT SECURITY PLAN TO SUPABASE
+========================================================= */
 
-        const data =
-            new FormData(form);
+submitButton.addEventListener("click", async function () {
 
+    if (!activeEnvironment) {
+        alert("Please select an environment.");
+        return;
+    }
 
-        data.append(
-            "environment",
-            environmentForms[activeEnvironment].title
-        );
+    if (!form.reportValidity()) {
+        return;
+    }
 
+    const originalHTML = submitButton.innerHTML;
 
-        const params =
-            new URLSearchParams();
+    submitButton.disabled = true;
+    submitButton.innerHTML = `
+        Submitting...
+        <span>→</span>
+    `;
 
+    try {
 
-        for (const [key, value] of data.entries()) {
+        const formData = new FormData(form);
 
-            params.append(key, value);
+        /*
+         * Convert complete dynamic form into an object.
+         * Checkbox fields automatically become arrays.
+         */
+        const collectedData = {};
 
+        for (const [key, value] of formData.entries()) {
+
+            if (!value) continue;
+
+            if (collectedData[key]) {
+
+                if (!Array.isArray(collectedData[key])) {
+                    collectedData[key] = [collectedData[key]];
+                }
+
+                collectedData[key].push(value);
+
+            } else {
+
+                collectedData[key] = value;
+
+            }
         }
 
 
         /*
-            FRONT-END PLACEHOLDER:
+         * Common fields are stored separately in database.
+         */
+        const commonFieldNames = [
+            "coverage_schedule",
+            "start_date",
+            "contact_name",
+            "contact_email",
+            "contact_phone",
+            "additional_information"
+        ];
 
-            Later, when your Node.js backend endpoint is ready,
-            this can be changed to a fetch() POST request.
 
-            Right now it sends the collected information to
-            contact.html through the query string.
-        */
+        /*
+         * Everything environment-specific goes inside plan_details.
+         */
+        const planDetails = {};
 
-        window.location.href =
-            "contact.html?" +
-            params.toString();
+        Object.entries(collectedData).forEach(([key, value]) => {
+
+            if (!commonFieldNames.includes(key)) {
+                planDetails[key] = value;
+            }
+
+        });
+
+
+        const securityPlan = {
+
+            environment_key:
+                activeEnvironment,
+
+            environment_name:
+                environmentForms[activeEnvironment].title,
+
+            contact_name:
+                collectedData.contact_name,
+
+            contact_email:
+                collectedData.contact_email,
+
+            contact_phone:
+                collectedData.contact_phone || null,
+
+            coverage_schedule:
+                collectedData.coverage_schedule || null,
+
+            preferred_start_date:
+                collectedData.start_date || null,
+
+            additional_information:
+                collectedData.additional_information || null,
+
+            plan_details:
+                planDetails,
+
+            status:
+                "new"
+        };
+
+
+        const { error } = await publicSupabase
+            .from("security_plans")
+            .insert([securityPlan]);
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        alert(
+            "Your security plan has been submitted successfully. Our team will contact you shortly."
+        );
+
+
+        /*
+         * Reset form after successful submission
+         */
+        form.reset();
+
+        activeEnvironment = null;
+
+        reviewScreen.classList.remove("active");
+
+        closeBuilder();
+
+
+    } catch (error) {
+
+        console.error(
+            "Security plan submission error:",
+            error
+        );
+
+        alert(
+            "We couldn't submit your security plan. Please try again."
+        );
+
+    } finally {
+
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalHTML;
 
     }
-);
 
+});
 
 /* =========================================================
    ESC CLOSE

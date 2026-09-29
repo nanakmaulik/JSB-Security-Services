@@ -65,7 +65,13 @@
             </button>
 
         </nav>
-
+<button
+    class="admin-nav-item"
+    data-section="security-plans"
+>
+    <span>Security Plans</span>
+    <span class="nav-count" id="securityPlanCount">0</span>
+</button>
 
         <div class="admin-sidebar-footer">
 
@@ -146,7 +152,69 @@
             </select>
 
         </section>
+<!-- SECURITY PLAN ENVIRONMENT FILTERS -->
 
+<section
+    class="environment-filter-bar"
+    id="environmentFilterBar"
+    style="display: none;"
+>
+    <button
+        type="button"
+        class="environment-filter active"
+        data-environment="all"
+    >
+        All Plans
+    </button>
+
+    <button
+        type="button"
+        class="environment-filter"
+        data-environment="commercial"
+    >
+        Commercial
+    </button>
+
+    <button
+        type="button"
+        class="environment-filter"
+        data-environment="industrial"
+    >
+        Industrial
+    </button>
+
+    <button
+        type="button"
+        class="environment-filter"
+        data-environment="construction"
+    >
+        Construction
+    </button>
+
+    <button
+        type="button"
+        class="environment-filter"
+        data-environment="retail"
+    >
+        Retail
+    </button>
+
+    <button
+        type="button"
+        class="environment-filter"
+        data-environment="events"
+    >
+        Events
+    </button>
+
+    <button
+        type="button"
+        class="environment-filter"
+        data-environment="property"
+    >
+        Property Management
+    </button>
+</section>
 
         <!-- CARDS -->
 
@@ -200,7 +268,35 @@
     </div>
 
 </div>
+<!-- SECURITY PLAN VIEW MODAL -->
 
+<div
+    class="admin-modal"
+    id="planModal"
+    aria-hidden="true"
+>
+    <div class="admin-modal-card plan-modal-card">
+
+        <button
+            class="modal-close"
+            id="planModalClose"
+            type="button"
+        >
+            ×
+        </button>
+
+        <span class="admin-eyebrow">
+            SECURITY PLAN
+        </span>
+
+        <h2 id="planModalTitle">
+            Security Plan Details
+        </h2>
+
+        <div id="planModalContent"></div>
+
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
