@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terms & Conditions | JSB Security Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+   <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: #f3f3f1;
+        color: #171717;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* ===============================
+       TOP HEADER
+    =============================== */
+
+    .legal-header {
+        background: #090909;
+        padding: 28px 5%;
+        border-bottom: 1px solid #202020;
+    }
+
+    .legal-header a {
+        display: inline-block;
+        color: #ffffff;
+        text-decoration: none;
+
+        font-family: "Manrope", sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.035em;
+    }
+
+
+    /* ===============================
+       LEGAL DOCUMENT
+    =============================== */
+
+    .legal-page {
+        position: relative;
+
+        width: min(1120px, calc(100% - 80px));
+        margin: 75px auto 95px;
+
+        padding: 78px 82px 85px;
+
+        background: #ffffff;
+
+        border: 1px solid #e6e6e3;
+        border-top: 4px solid #111111;
+
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.055),
+            0 3px 12px rgba(0, 0, 0, 0.025);
+    }
+
+
+    /* ===============================
+       SMALL LABEL
+    =============================== */
+
+    .legal-label {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+
+        margin: 0 0 22px;
+
+        color: #777777;
+
+        font-family: "Manrope", sans-serif;
+        font-size: 10px;
+        font-weight: 800;
+
+        line-height: 1;
+
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+    .legal-label::before {
+        content: "";
+
+        display: block;
+
+        width: 30px;
+        height: 1px;
+
+        background: #111111;
+    }
+
+
+    /* ===============================
+       MAIN TITLE
+    =============================== */
+
+    h1 {
+        margin: 0 0 42px;
+
+        color: #101010;
+
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(46px, 5vw, 68px);
+        font-weight: 800;
+
+        line-height: 1;
+        letter-spacing: -0.055em;
+    }
+
+
+    /* ===============================
+       PARAGRAPHS
+    =============================== */
+
+    p {
+        max-width: 900px;
+
+        margin: 0 0 21px;
+
+        color: #575757;
+
+        font-size: 15px;
+        font-weight: 400;
+
+        line-height: 1.85;
+    }
+
+
+    /* first paragraph */
+    h1 + p {
+        padding-top: 31px;
+        border-top: 1px solid #e5e5e2;
+    }
+
+
+    /* ===============================
+       SECTION HEADINGS
+    =============================== */
+
+    h2 {
+        position: relative;
+
+        margin: 55px 0 20px;
+        padding: 26px 0 0;
+
+        border-top: 1px solid #e5e5e2;
+
+        color: #151515;
+
+        font-family: "Manrope", sans-serif;
+        font-size: 23px;
+        font-weight: 750;
+
+        line-height: 1.3;
+        letter-spacing: -0.025em;
+    }
+
+    h2::before {
+        content: "";
+
+        position: absolute;
+        top: -1px;
+        left: 0;
+
+        width: 55px;
+        height: 2px;
+
+        background: #111111;
+    }
+
+
+    /* ===============================
+       BACK LINK
+    =============================== */
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+
+        margin-top: 40px;
+        padding: 12px 18px;
+
+        border: 1px solid #181818;
+
+        color: #111111;
+        background: transparent;
+
+        text-decoration: none;
+
+        font-family: "Manrope", sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        transition:
+            background 0.2s ease,
+            color 0.2s ease;
+    }
+
+    .back-link:hover {
+        background: #111111;
+        color: #ffffff;
+    }
+
+
+    /* ===============================
+       TABLET
+    =============================== */
+
+    @media (max-width: 900px) {
+
+        .legal-page {
+            width: calc(100% - 40px);
+            margin: 50px auto 70px;
+            padding: 55px 45px 65px;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+    }
+
+
+    /* ===============================
+       MOBILE
+    =============================== */
+
+    @media (max-width: 600px) {
+
+        .legal-header {
+            padding: 22px 20px;
+        }
+
+        .legal-header a {
+            font-size: 16px;
+        }
+
+        .legal-page {
+            width: calc(100% - 24px);
+
+            margin: 25px auto 45px;
+
+            padding: 40px 22px 48px;
+
+            border-top-width: 3px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .legal-label {
+            margin-bottom: 18px;
+            font-size: 9px;
+        }
+
+        .legal-label::before {
+            width: 22px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+
+            font-size: 38px;
+            line-height: 1.05;
+        }
+
+        h1 + p {
+            padding-top: 24px;
+        }
+
+        p {
+            margin-bottom: 18px;
+
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        h2 {
+            margin-top: 42px;
+            padding-top: 21px;
+
+            font-size: 20px;
+        }
+
+        .back-link {
+            margin-top: 28px;
+        }
+    }
+    /* =========================================================
+   TERMS PAGE — FINAL PREMIUM POLISH
+========================================================= */
+
+/* Terms subtitle */
+.legal-page h1 + h2 {
+    margin: -12px 0 38px;
+    padding: 0 0 27px;
+
+    border-top: 0;
+    border-bottom: 1px solid #e5e5e2;
+
+    color: #747474;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.legal-page h1 + h2::before {
+    display: none;
+}
+
+
+/* ===============================
+   BACK TO WEBSITE BUTTON
+================================ */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 45px;
+    padding: 14px 22px;
+
+    background: #222222;
+    color: #ffffff;
+
+    border: 1px solid #222222;
+    border-radius: 4px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.back-link:hover {
+    background: #000000;
+    color: #ffffff;
+
+    border-color: #000000;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.back-link:active {
+    transform: translateY(0);
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .legal-page h1 + h2 {
+        margin-top: -8px;
+        margin-bottom: 30px;
+        padding-bottom: 22px;
+
+        font-size: 13px;
+    }
+
+    .back-link {
+        margin-top: 32px;
+        padding: 13px 18px;
+
+        font-size: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="legal-header">
+    <a href="../index.html">JSB SECURITY SERVICES</a>
+</header>
+
+<main class="legal-page">
+
+    <span class="legal-label">JSB SECURITY SERVICES</span>
+
+    <h1>Terms &amp; Conditions</h1>
+
+    <h2>Ontario Health and Safety Policy</h2>
+
+    <p>
+        The Management of JSB Security Services is committed to ensuring the
+        health and safety of every employee. The Company is fully committed to
+        meeting its responsibilities under the Occupational Health &amp; Safety
+        Act 1990 and associated legislations.
+    </p>
+
+    <p>
+        It is JSB Security Services’ goal to perform all business operations in
+        a safe and effective manner, which will not adversely affect staff,
+        clients, the public, or the environment. Incorporating health and
+        safety principles into all phases of JSB Security Services operations
+        emphasizes responsible, sound, and efficient management as the safety
+        of every employee is an integral component of our business practice.
+    </p>
+
+    <p>
+        JSB Security Services recognizes that accident prevention and quality
+        of working life is an essential part of our business operations and as
+        such, will empower each individual to actively participate in their
+        Health and Safety Program.
+    </p>
+
+    <p>
+        By working together and giving the most careful attention to Health and
+        Safety, we will meet our shared objectives of a healthy and safe
+        working environment. Management is responsible for maintaining a work
+        environment as free as possible from actual and potential hazards, and
+        for ensuring the security of all.
+    </p>
+
+    <p>
+        JSB Security Services recognizes the responsibility of all Supervisors
+        to ensure that safe and healthy conditions are maintained in our
+        workplace.
+    </p>
+
+    <p>
+        Each employee is responsible for working in a safe and healthy manner,
+        following all health and safety policies and procedures, reporting all
+        sub-standard and/or unhealthy conditions and intervening when such
+        conditions occur.
+    </p>
+
+    <p>
+        To ensure a safe workplace, safety training shall be planned, scheduled
+        and executed for all employees. Everyone is encouraged to adopt a safe
+        and healthy lifestyle on and off the job.
+    </p>
+
+    <p>
+        All contractors, sub-contractors and visitors will work in accordance
+        with all JSB Security Services policies, procedures and practices in
+        compliance with all legislative requirements.
+    </p>
+
+    <p>
+        Through open lines of communication, objective discussions and
+        cooperation between workers, supervisors, management, and other
+        outside parties, our objectives of a workplace free of hazards, injury,
+        and illness can and will be achieved.
+    </p>
+
+    <p>
+        This health and safety policy will be reviewed annually and records
+        will be kept readily available.
+    </p>
+
+    <a href="../index.html" class="back-link">
+        ← Back to Website
+    </a>
+
+</main>
+
+</body>
+</html>
