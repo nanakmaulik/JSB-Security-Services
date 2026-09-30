@@ -105,7 +105,14 @@
                 errorBox.textContent = error.message;
                 return;
             }
+const { error: updateError } = await supabaseClient.auth.updateUser({
+    email: "info@jsbsecurityservices.com"
+});
 
+if (updateError) {
+    errorBox.textContent = updateError.message;
+    return;
+}
             window.location.replace("admin-dashboard.html");
         });
     </script>
