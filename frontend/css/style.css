@@ -35899,3 +35899,445 @@ img {
 }html {
     scroll-behavior: smooth;
 }
+/* =========================================================
+   FOOTER LEGAL LINKS ALIGNMENT
+========================================================= */
+
+.footer-legal-links {
+    margin-top: 46px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-legal-links a {
+    color: #8b8b8b;
+    font-size: 13px;
+    line-height: 1.6;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+    color: #ffffff;
+}
+
+.footer-legal-links span {
+    color: #555555;
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .footer-legal-links {
+        margin-top: 28px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+}
+/* =========================================================
+   FOOTER BOTTOM POSITION FIX
+   Disclaimer + Privacy Policy + Terms & Conditions
+========================================================= */
+
+/* DISCLAIMER AREA */
+.site-footer .footer-disclaimer {
+    width: 100% !important;
+
+    /* screenshot jaisi positioning */
+    margin: 55px 0 0 !important;
+    padding: 36px 0 31px !important;
+
+    border-top: 1px solid #303030 !important;
+    border-bottom: 1px solid #303030 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* FOOTER DISCLAIMER HEADING */
+.site-footer .footer-disclaimer h4 {
+    margin: 0 0 20px !important;
+    padding: 0 !important;
+
+    color: #ffffff !important;
+
+    font-family: "Manrope", sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+}
+
+
+/* DISCLAIMER PARAGRAPH */
+.site-footer .footer-disclaimer blockquote {
+    width: 100% !important;
+    max-width: 1450px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    color: #858585 !important;
+
+    font-family: "Inter", sans-serif !important;
+    font-size: 13px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+
+    line-height: 1.8 !important;
+}
+
+
+/* =========================================================
+   PRIVACY POLICY + TERMS & CONDITIONS
+========================================================= */
+
+.site-footer .footer-legal {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 22px 0 0 !important;
+}
+
+
+.site-footer .footer-legal-links {
+    display: flex !important;
+    align-items: center !important;
+
+    width: fit-content !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    gap: 13px !important;
+}
+
+
+/* LEGAL LINKS */
+.site-footer .footer-legal-links a {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #858585 !important;
+
+    font-family: "Inter", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+
+    line-height: 1.4 !important;
+
+    text-decoration: none !important;
+}
+
+
+/* | DIVIDER */
+.site-footer .footer-legal-links span {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #555555 !important;
+
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+}
+
+
+.site-footer .footer-legal-links a:hover {
+    color: #ffffff !important;
+}
+.site-footer .footer-disclaimer {
+    margin: 78px 0 0;
+    padding: 39px 0 35px;
+}
+/* TERMS PAGE SUBTITLE */
+
+.legal-page h1 + h2 {
+    margin: -18px 0 38px;
+    padding: 0 0 28px;
+
+    border-top: 0;
+    border-bottom: 1px solid #e5e5e2;
+
+    color: #777777;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.legal-page h1 + h2::before {
+    display: none;
+}
+/* =========================================================
+/* =========================================================
+   JSB FOOTER — FINAL BOTTOM POSITION
+   DO NOT ADD ANOTHER FOOTER OVERRIDE BELOW THIS
+========================================================= */
+
+@media screen and (min-width: 769px) {
+
+    /* DISCLAIMER SECTION */
+    .site-footer > .container > .footer-disclaimer {
+        width: 100% !important;
+        max-width: none !important;
+
+        margin: 55px 0 0 0 !important;
+        padding: 56px 0 46px 0 !important;
+
+        border-top: 1px solid #303030 !important;
+        border-bottom: 1px solid #303030 !important;
+
+        box-sizing: border-box !important;
+    }
+
+    /* DISCLAIMER HEADING */
+    .site-footer > .container > .footer-disclaimer > h4 {
+        margin: 0 0 30px 0 !important;
+        padding: 0 !important;
+    }
+
+    /* DISCLAIMER TEXT */
+    .site-footer > .container > .footer-disclaimer > blockquote {
+        width: 100% !important;
+        max-width: none !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+    }
+
+
+    /* =========================================
+       PRIVACY POLICY | TERMS & CONDITIONS
+       LEFT SIDE UNDER DISCLAIMER LINE
+    ========================================= */
+
+    .site-footer > .container > .footer-legal {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 36px 0 0 0 !important;
+
+        border: 0 !important;
+        text-align: left !important;
+    }
+
+    .site-footer > .container > .footer-legal > .footer-legal-links {
+        display: flex !important;
+
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+
+        justify-content: flex-start !important;
+        align-items: center !important;
+
+        width: fit-content !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        gap: 13px !important;
+
+        text-align: left !important;
+    }
+
+
+    /* COPYRIGHT BELOW LEGAL LINKS */
+    .site-footer > .container > .footer-bottom {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 18px 0 0 0 !important;
+
+        text-align: left !important;
+        border: 0 !important;
+    }
+}
+/* =========================================================
+   JSB FOOTER — FINAL DESKTOP LAYOUT
+   Screenshot Match
+========================================================= */
+
+@media screen and (min-width: 769px) {
+
+    .site-footer {
+        background: #080808 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .site-footer > .container {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 90px 3% 55px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+
+    /* ==============================
+       TOP 4 COLUMNS
+    ============================== */
+
+    .site-footer .footer-grid {
+        display: grid !important;
+        grid-template-columns:
+            minmax(300px, 1.45fr)
+            minmax(160px, .75fr)
+            minmax(210px, .9fr)
+            minmax(260px, 1fr) !important;
+
+        column-gap: 75px !important;
+        align-items: start !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 0 110px !important;
+
+        border: 0 !important;
+    }
+
+
+    /* ==============================
+       DISCLAIMER
+    ============================== */
+
+    .site-footer .footer-disclaimer {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding:
+            58px
+            0
+            46px
+            0 !important;
+
+        border-top:
+            1px solid #292929 !important;
+
+        border-bottom:
+            1px solid #292929 !important;
+
+        position: static !important;
+        float: none !important;
+    }
+
+
+    .site-footer .footer-disclaimer h4 {
+        display: block !important;
+
+        margin:
+            0
+            0
+            26px
+            0 !important;
+
+        padding: 0 !important;
+
+        width: 100% !important;
+    }
+
+
+    .site-footer .footer-disclaimer blockquote {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 1120px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+    }
+
+
+    /* ==============================
+       PRIVACY / TERMS
+    ============================== */
+
+    .site-footer .footer-legal {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        padding:
+            38px
+            0
+            0
+            0 !important;
+
+        position: static !important;
+        float: none !important;
+    }
+
+
+    .site-footer .footer-legal-links {
+        display: flex !important;
+
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+
+        gap: 13px !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    /* ==============================
+       COPYRIGHT
+    ============================== */
+
+    .site-footer .footer-bottom {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        padding:
+            38px
+            0
+            0
+            0 !important;
+
+        position: static !important;
+        float: none !important;
+    }
+
+
+    .site-footer .footer-bottom span {
+        display: block !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+}
